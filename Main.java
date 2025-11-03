@@ -8,6 +8,7 @@ public class Main {
     static String RESET = "\u001B[0m";
     static String RED = "\u001B[31m";
 
+
     public static void main(String[] args) {
 
         ArrayList<Course> courses = new ArrayList<>();
@@ -80,7 +81,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println(RED + "Invalid choice. Please try again." + RESET);
                     break;
             }
         }
@@ -99,6 +100,7 @@ public class Main {
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter an integer." + RESET);
+                scanner.nextLine();
             }
         }
         SaudiEStudent student = new SaudiEStudent(studentName, studentId);
@@ -128,6 +130,7 @@ public class Main {
                 }
             } catch (Exception e) {
                 System.out.println(RED + "Please enter an integer." + RESET);
+                scanner.nextLine();
             }
         }
 
@@ -148,6 +151,7 @@ public class Main {
                 }
             } catch (Exception e) {
                 System.out.println(RED + "Please enter an integer." + RESET);
+                scanner.nextLine();
             }
         }
 
@@ -161,6 +165,7 @@ public class Main {
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid number for grade." + RESET);
+                scanner.nextLine();
             }
         }
 
@@ -179,6 +184,7 @@ public class Main {
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter an integer." + RESET);
+                scanner.nextLine();
             }
         }
         double monthlySalary;
@@ -189,6 +195,7 @@ public class Main {
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid number for salary." + RESET);
+                scanner.nextLine();
             }
         }
         FullTimeEmployee ftEmployee = new FullTimeEmployee(fullTimeEmployeeName, employeeId, monthlySalary);
@@ -207,6 +214,7 @@ public class Main {
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter an integer." + RESET);
+                scanner.nextLine();
             }
         }
         double hourlyRate;
@@ -217,6 +225,7 @@ public class Main {
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid number for hourly rate." + RESET);
+                scanner.nextLine();
             }
         }
         int hoursWorked;
@@ -227,6 +236,7 @@ public class Main {
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid integer for hours worked." + RESET);
+                scanner.nextLine();
             }
         }
 
