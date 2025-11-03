@@ -6,7 +6,10 @@ public class SaudiEStudent extends Person {
     private CourseEnrollment[] courses;
     private int courseCount = 0;
 
-
+        final String RESET = "\u001B[0m";
+        final String RED = "\u001B[31m";
+        final String GREEN = "\u001B[32m";
+        
         public SaudiEStudent(String name, int id) {
             super(name, id);
             this.courses = new CourseEnrollment[10]; // assume max 10 courses for 1 semester
@@ -23,7 +26,7 @@ public class SaudiEStudent extends Person {
         }
 
         
-  
+    @Override
     public void displayDetails() {
         System.out.println("Student Name: " + getName());
         System.out.println("Student ID: " + getId());
@@ -43,8 +46,9 @@ public class SaudiEStudent extends Person {
                 System.out.println("  Code: " + courses[i].course.getCourseCode());
                 System.out.println("  Professor: " + courses[i].course.getProfessorName());
                 System.out.println("  Grade: " + courses[i].grade);
-                System.out.println("  Pass or Fail: " + (courses[i].isPass() ? "Pass" : "Fail"));
-                System.out.println("----------------");
+                String statusColor = courses[i].isPass() ? GREEN : RED;
+                String statusText = courses[i].isPass() ? "Pass" : "Fail";
+                System.out.println("  Pass or Fail: " + statusColor + statusText + RESET);
             }
         }
     }
