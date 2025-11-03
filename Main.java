@@ -95,7 +95,7 @@ public class Main {
         int studentId;
         while (true) {
             try {
-                studentId = Integer.parseInt(scanner.nextLine());
+                studentId = scanner.nextInt();
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter an integer." + RESET);
@@ -120,7 +120,7 @@ public class Main {
         int studentIndex;
         while (true) {
             try {
-                studentIndex = Integer.parseInt(scanner.nextLine()) - 1;
+                studentIndex = scanner.nextInt() - 1;
                 if (studentIndex >= 0 && studentIndex < students.size()) {
                     break;
                 } else {
@@ -140,7 +140,7 @@ public class Main {
         int courseIndex;
         while (true) {
             try {
-                courseIndex = Integer.parseInt(scanner.nextLine()) - 1;
+                courseIndex = scanner.nextInt() - 1;
                 if (courseIndex >= 0 && courseIndex < courses.size()) {
                     break;
                 } else {
@@ -157,7 +157,7 @@ public class Main {
         double grade;
         while (true) {
             try {
-                grade = Double.parseDouble(scanner.nextLine());
+                grade = scanner.nextDouble();
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid number for grade." + RESET);
@@ -165,8 +165,7 @@ public class Main {
         }
 
         selectedStudent.addCourse(selectedCourse, grade);
-        System.out.println(
-                GREEN + "Enrolled " + selectedStudent.getName() + " in " + selectedCourse.getCourseName() + RESET);
+        System.out.println(GREEN + "Enrolled " + selectedStudent.getName() + " in " + selectedCourse.getCourseName() + RESET);
     }
 
     public static void addFullTimeEmployee(Scanner scanner, ArrayList<Employee> employees) {
@@ -176,7 +175,7 @@ public class Main {
         int employeeId;
         while (true) {
             try {
-                employeeId = Integer.parseInt(scanner.nextLine());
+                employeeId = scanner.nextInt();
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter an integer." + RESET);
@@ -186,7 +185,7 @@ public class Main {
         while (true) {
             try {
                 System.out.println("Enter Monthly Salary:");
-                monthlySalary = Double.parseDouble(scanner.nextLine());
+                monthlySalary = scanner.nextDouble();
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid number for salary." + RESET);
@@ -204,7 +203,7 @@ public class Main {
         int employeeId;
         while (true) {
             try {
-                employeeId = Integer.parseInt(scanner.nextLine());
+                employeeId = scanner.nextInt();
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter an integer." + RESET);
@@ -214,7 +213,7 @@ public class Main {
         while (true) {
             try {
                 System.out.println("Enter Hourly Rate:");
-                hourlyRate = Double.parseDouble(scanner.nextLine());
+                hourlyRate = scanner.nextDouble();
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid number for hourly rate." + RESET);
@@ -224,7 +223,7 @@ public class Main {
         while (true) {
             try {
                 System.out.println("Enter Hours Worked:");
-                hoursWorked = Integer.parseInt(scanner.nextLine());
+                hoursWorked = scanner.nextInt();
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid integer for hours worked." + RESET);
