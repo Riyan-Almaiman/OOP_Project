@@ -94,6 +94,8 @@ public class Main {
         String studentName = scanner.nextLine();
         System.out.println("Enter ID:");
         int studentId;
+
+        //loop until valid input (incase user enters string)
         while (true) {
             try {
                 studentId = scanner.nextInt();
@@ -110,19 +112,23 @@ public class Main {
 
     public static void enrollStudentInCourse(Scanner scanner, ArrayList<SaudiEStudent> students,
             ArrayList<Course> courses) {
+        //if no students in the list return
         if (students.size() == 0) {
             System.out.println(RED + "No students available to enroll." + RESET);
             return;
         }
-
+        //create menu from list 
         System.out.println("Select a student to enroll in a course:");
         for (int i = 0; i < students.size(); i++) {
             System.out.println((i + 1) + ". " + students.get(i).getName());
         }
         int studentIndex;
+        //loop until valid input (incase user enters string)
         while (true) {
             try {
+                //get user input (index starts from 0 subtract 1)
                 studentIndex = scanner.nextInt() - 1;
+                //check if input is in range of the list (must be greater than or equal to 0 and less than size)
                 if (studentIndex >= 0 && studentIndex < students.size()) {
                     break;
                 } else {
@@ -133,17 +139,21 @@ public class Main {
                 scanner.nextLine();
             }
         }
-
+        //find selected student from the list
         SaudiEStudent selectedStudent = students.get(studentIndex);
 
         System.out.println("Select a course to enroll in:");
+        //create menu from course list
         for (int i = 0; i < courses.size(); i++) {
             System.out.println((i + 1) + ". " + courses.get(i).getCourseName());
         }
         int courseIndex;
+        //loop until valid input (incase user enters string)
         while (true) {
             try {
+                //get user input (index starts from 0 subtract 1)
                 courseIndex = scanner.nextInt() - 1;
+                //check if input is in range of the list (must be greater than or equal to 0 and less than size)
                 if (courseIndex >= 0 && courseIndex < courses.size()) {
                     break;
                 } else {
@@ -155,10 +165,12 @@ public class Main {
             }
         }
 
+        //find selected course from the list
         Course selectedCourse = courses.get(courseIndex);
 
         System.out.println("Enter grade for the course:");
         double grade;
+        //loop until valid input (incase user enters string)
         while (true) {
             try {
                 grade = scanner.nextDouble();
@@ -178,6 +190,7 @@ public class Main {
         String fullTimeEmployeeName = scanner.nextLine();
         System.out.println("Enter ID:");
         int employeeId;
+         //loop until valid input (incase user enters string)
         while (true) {
             try {
                 employeeId = scanner.nextInt();
@@ -188,6 +201,8 @@ public class Main {
             }
         }
         double monthlySalary;
+
+         //loop until valid input (incase user enters string)
         while (true) {
             try {
                 System.out.println("Enter Monthly Salary:");
@@ -208,6 +223,7 @@ public class Main {
         String partTimeEmployeeName = scanner.nextLine();
         System.out.println("Enter ID:");
         int employeeId;
+        //loop until valid input (incase user enters string)
         while (true) {
             try {
                 employeeId = scanner.nextInt();
@@ -218,6 +234,8 @@ public class Main {
             }
         }
         double hourlyRate;
+        //loop until valid input (incase user enters string)
+
         while (true) {
             try {
                 System.out.println("Enter Hourly Rate:");
@@ -229,6 +247,8 @@ public class Main {
             }
         }
         int hoursWorked;
+        //loop until valid input (incase user enters string)
+
         while (true) {
             try {
                 System.out.println("Enter Hours Worked:");
