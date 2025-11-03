@@ -8,17 +8,9 @@ public class Main {
     static String RESET = "\u001B[0m";
     static String RED = "\u001B[31m";
 
-
     public static void main(String[] args) {
 
-        ArrayList<Course> courses = new ArrayList<>();
-        ArrayList<Employee> employees = new ArrayList<>();
-        ArrayList<SaudiEStudent> students = new ArrayList<>();
-
-        courses.add(new Course("Object Oriented Programming", "CS230", "Dr. Omar Alaqeeli"));
-        courses.add(new Course("Digital Logic Design", "CS231", "Dr. Hamad Alismail"));
-        courses.add(new Course("Physics 1", "SCI101", "Dr. Yousef Kareri"));
-
+        ArrayList<Person> persons = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         boolean isMenuOpen = true;
 
@@ -28,55 +20,42 @@ public class Main {
             System.out.println("2. Add Full-Time Employee");
             System.out.println("3. Add Part-Time Employee");
             System.out.println("4. Display All Records");
-            System.out.println("5. Enroll Student in Course");
-            System.out.println("6. Exit");
+            System.out.println("5. Exit");
             System.out.print("Choose an option: ");
 
             String choice = scanner.nextLine();
 
             switch (choice) {
                 case "1":
-                    addStudent(scanner, students);
+                    addStudent(scanner, persons);
                     System.out.println("Enter to continue...");
                     scanner.nextLine();
                     break;
 
                 case "2":
-                    addFullTimeEmployee(scanner, employees);
+                    addFullTimeEmployee(scanner, persons);
                     System.out.println("Enter to continue...");
                     scanner.nextLine();
                     break;
                 case "3":
-                    addPartTimeEmployee(scanner, employees);
+                    addPartTimeEmployee(scanner, persons);
                     System.out.println("Enter to continue...");
-                    scanner.nextLine();  
+                    scanner.nextLine();
                     break;
                 case "4":
-                    System.out.println("------------- Employees ---------------------");
-                    if (employees.size() == 0) {
-                        System.out.println(RED + "No employees to display." + RESET);
-                    }
-                    for (Employee employee : employees) {
-                        employee.displayDetails();
+                    System.out.println("All Records:");
+
+                    for (Person person : persons) {
+                        System.out.println("----------------");
+                        person.displayDetails();
                         System.out.println("----------------");
                     }
-                    System.out.println("------------- Students ---------------------");
-                    if (students.size() == 0) {
-                        System.out.println(RED + "No students to display." + RESET);
-                    }
-                    for (SaudiEStudent student : students) {
-                        student.displayDetails();
-                        System.out.println("----------------");
-                    }
+
                     System.out.println("Enter to continue...");
                     scanner.nextLine();
                     break;
+
                 case "5":
-                    enrollStudentInCourse(scanner, students, courses);
-                    System.out.println("Enter to continue...");
-                    scanner.nextLine();
-                    break;
-                case "6":
                     isMenuOpen = false;
                     break;
 
@@ -88,190 +67,179 @@ public class Main {
 
     }
 
-
-    public static void addStudent(Scanner scanner, ArrayList<SaudiEStudent> students) {
-        System.out.println("Enter Name:");
-        String studentName = scanner.nextLine();
-        System.out.println("Enter ID:");
+    public static void addStudent(Scanner scanner, ArrayList<Person> persons) {
         int studentId;
+        String studentName;
+        String courseName;
+        double grade;
 
-        //loop until valid input (incase user enters string)
+        // get name input
+        System.out.println("Enter Name:");
+        studentName = scanner.nextLine();
+
+        // get id by looping until valid input (incase user enters string)
         while (true) {
+
+            System.out.println("Enter ID:");
+
             try {
                 studentId = scanner.nextInt();
-                break; // when it reaches here that means number is valid so we break
-            } catch (Exception e) {
-                //not valid try again
-                System.out.println(RED + "Please enter an integer." + RESET);
-                scanner.nextLine();
-            }
-        }
-        SaudiEStudent student = new SaudiEStudent(studentName, studentId);
-        students.add(student);
-        System.out.println(GREEN + "Added student: " + studentName + RESET);
-    }
+                scanner.nextLine(); // clear newline
 
-    public static void enrollStudentInCourse(Scanner scanner, ArrayList<SaudiEStudent> students,
-            ArrayList<Course> courses) {
-        //if no students in the list return
-        if (students.size() == 0) {
-            System.out.println(RED + "No students available to enroll." + RESET);
-            return;
-        }
-        //create menu from list 
-        System.out.println("Select a student to enroll in a course:");
-        for (int i = 0; i < students.size(); i++) {
-            System.out.println((i + 1) + ". " + students.get(i).getName());
-        }
-        int studentIndex;
-        //loop until valid input (incase user enters string)
-        while (true) {
-            try {
-                //get user input (index starts from 0 subtract 1)
-                studentIndex = scanner.nextInt() - 1;
-                //check if input is in range of the list (must be greater than or equal to 0 and less than size)
-                if (studentIndex >= 0 && studentIndex < students.size()) {
-                    break; // valid input so break the loop
-                } else {
-                    System.out.println(RED + "Please select a valid student number." + RESET);
+                // Check if ID already exists
+                if (checkifIdExists(persons, studentId)) {
+                    System.out.println(RED + "This ID already exists. Please enter a different one." + RESET);
+                    continue; // go back to start of loop
                 }
+
+                break; // valid input break out of loop
             } catch (Exception e) {
-                //not valid try again
                 System.out.println(RED + "Please enter an integer." + RESET);
-                scanner.nextLine();
+                scanner.nextLine(); // clear invalid input
             }
         }
-        //find selected student from the list
-        SaudiEStudent selectedStudent = students.get(studentIndex);
+        // get course name and grade
+        System.out.println("Enter Course Name:");
+        courseName = scanner.nextLine();
 
-        System.out.println("Select a course to enroll in:");
-        //create menu from course list
-        for (int i = 0; i < courses.size(); i++) {
-            System.out.println((i + 1) + ". " + courses.get(i).getCourseName());
-        }
-        int courseIndex;
-        //loop until valid input (incase user enters string)
+        // get grade by looping until valid input (incase user enters string)
         while (true) {
-            try {
-                //get user input (index starts from 0 subtract 1)
-                courseIndex = scanner.nextInt() - 1;
-                //check if input is in range of the list (must be greater than or equal to 0 and less than size)
-                if (courseIndex >= 0 && courseIndex < courses.size()) {
-                    break; // valid input so break the loop
-                } else {
-                    System.out.println(RED + "Please select a valid course number." + RESET);
-                }
-            } catch (Exception e) {
-                //not valid try again
-                System.out.println(RED + "Please enter an integer." + RESET);
-                scanner.nextLine();
-            }
-        }
+            System.out.println("Enter Grade:");
 
-        //find selected course from the list
-        Course selectedCourse = courses.get(courseIndex);
-
-        System.out.println("Enter grade for the course:");
-        double grade;
-        //loop until valid input (incase user enters string)
-        while (true) {
             try {
                 grade = scanner.nextDouble();
-                break; // when it reaches here that means number is valid so we break
+                scanner.nextLine();
+                break;
             } catch (Exception e) {
-                //not valid try again
                 System.out.println(RED + "Please enter a valid number for grade." + RESET);
                 scanner.nextLine();
             }
         }
-
-        selectedStudent.addCourse(selectedCourse, grade);
-        System.out.println(GREEN + "Enrolled " + selectedStudent.getName() + " in " + selectedCourse.getCourseName() + RESET);
+        // create student and add to list of persons
+        SaudiEStudent student = new SaudiEStudent(studentName, studentId, courseName, grade);
+        persons.add(student);
+        System.out.println(GREEN + "Added student: " + studentName + RESET);
     }
 
-    public static void addFullTimeEmployee(Scanner scanner, ArrayList<Employee> employees) {
-        System.out.println("Enter Name:");
-        String fullTimeEmployeeName = scanner.nextLine();
-        System.out.println("Enter ID:");
+    public static void addFullTimeEmployee(Scanner scanner, ArrayList<Person> persons) {
         int employeeId;
-         //loop until valid input (incase user enters string)
+        String fullTimeEmployeeName;
+        double monthlySalary;
+
+        System.out.println("Enter Name:");
+        fullTimeEmployeeName = scanner.nextLine();
+
+        // loop until valid input (incase user enters string)
         while (true) {
+            System.out.println("Enter Employee ID:");
+
             try {
                 employeeId = scanner.nextInt();
+                scanner.nextLine();
+                // Check if ID already exists
+                if (checkifIdExists(persons, employeeId)) {
+                    System.out.println(RED + "This ID already exists. Please enter a different one." + RESET);
+                    continue; // go back to start of loop
+                }
                 break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
-                //not valid try again
+                // not valid try again
                 System.out.println(RED + "Please enter an integer." + RESET);
                 scanner.nextLine();
             }
         }
-        double monthlySalary;
 
-         //loop until valid input (incase user enters string)
+        // loop until valid input (incase user enters string)
         while (true) {
             try {
                 System.out.println("Enter Monthly Salary:");
                 monthlySalary = scanner.nextDouble();
+                scanner.nextLine();
+
                 break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
-                //not valid try again
+                // not valid try again
                 System.out.println(RED + "Please enter a valid number for salary." + RESET);
                 scanner.nextLine();
             }
         }
-        FullTimeEmployee ftEmployee = new FullTimeEmployee(fullTimeEmployeeName, employeeId, monthlySalary);
-        employees.add(ftEmployee);
+
+        FullTimeEmployee fullTimeEmployee = new FullTimeEmployee(fullTimeEmployeeName, employeeId, monthlySalary);
+        persons.add(fullTimeEmployee);
         System.out.println(GREEN + "Added full-time employee: " + fullTimeEmployeeName + RESET);
     }
 
-    public static void addPartTimeEmployee(Scanner scanner, ArrayList<Employee> employees) {
-        System.out.println("Enter Name:");
-        String partTimeEmployeeName = scanner.nextLine();
-        System.out.println("Enter ID:");
+    public static void addPartTimeEmployee(Scanner scanner, ArrayList<Person> persons) {
+        double hourlyRate;
+        String partTimeEmployeeName;
         int employeeId;
-        //loop until valid input (incase user enters string)
+        int hoursWorked;
+        System.out.println("Enter Name:");
+        partTimeEmployeeName = scanner.nextLine();
+        // loop until valid input (incase user enters string)
         while (true) {
+            System.out.println("Enter ID:");
+
             try {
                 employeeId = scanner.nextInt();
+                scanner.nextLine();
+                // Check if ID already exists
+                if (checkifIdExists(persons, employeeId)) {
+                    System.out.println(RED + "This ID already exists. Please enter a different one." + RESET);
+                    continue; // go back to start of loop
+                }
+                
                 break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
-                //not valid try again
+                // not valid try again
                 System.out.println(RED + "Please enter an integer." + RESET);
                 scanner.nextLine();
             }
         }
-        double hourlyRate;
-        //loop until valid input (incase user enters string)
+        // loop until valid input (incase user enters string)
 
         while (true) {
             try {
                 System.out.println("Enter Hourly Rate:");
                 hourlyRate = scanner.nextDouble();
+                scanner.nextLine();
+
                 break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
-                //not valid try again
+                // not valid try again
                 System.out.println(RED + "Please enter a valid number for hourly rate." + RESET);
                 scanner.nextLine();
             }
         }
-        int hoursWorked;
-        //loop until valid input (incase user enters string)
 
+        // loop until valid input (incase user enters string)
         while (true) {
             try {
                 System.out.println("Enter Hours Worked:");
                 hoursWorked = scanner.nextInt();
+                scanner.nextLine();
+
                 break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
-                //not valid try again
+                // not valid try again
                 System.out.println(RED + "Please enter a valid integer for hours worked." + RESET);
                 scanner.nextLine();
             }
         }
 
-        PartTimeEmployee ptEmployee = new PartTimeEmployee(partTimeEmployeeName, employeeId, hourlyRate, hoursWorked);
-        employees.add(ptEmployee);
+        PartTimeEmployee partTimeEmployee = new PartTimeEmployee(partTimeEmployeeName, employeeId, hourlyRate,
+                hoursWorked);
+        persons.add(partTimeEmployee);
         System.out.println(GREEN + "Added part-time employee: " + partTimeEmployeeName + RESET);
+    }
+
+    public static boolean checkifIdExists(ArrayList<Person> persons, int id) {
+        for (Person person : persons) {
+            if (person.getId() == id) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
