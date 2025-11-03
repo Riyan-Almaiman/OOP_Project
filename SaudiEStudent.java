@@ -3,36 +3,24 @@
 public class SaudiEStudent extends Person {
 
 
-    private CourseWithGrade[] courses;
+    private CourseEnrollment[] courses;
     private int courseCount = 0;
 
-    public class CourseWithGrade {
-        Course course;
-        double grade;
-        public CourseWithGrade(Course course, double grade){
-            this.course = course;
-            this.grade = grade;
+
+        public SaudiEStudent(String name, int id) {
+            super(name, id);
+            this.courses = new CourseEnrollment[10]; // assume max 10 courses for 1 semester
+            this.courseCount = 0;
         }
 
-        public boolean isPass() {
-        return grade >= 60;
-         }
-
-    }
-    public SaudiEStudent(String name, int id) {
-        super(name, id);
-        this.courses = new CourseWithGrade[10]; // assume max 10 courses for 1 semester
-        this.courseCount = 0;
-    }
-
-    public void addCourse(Course course, double grade) {
-        if (courseCount < courses.length) {
-            courses[courseCount] = new CourseWithGrade(course, grade);
-            courseCount++;
-        } else {
-            System.out.println("Cannot add more courses for " + getName());
+        public void addCourse(Course course, double grade) {
+            if (courseCount < courses.length) {
+                courses[courseCount] = new CourseEnrollment(course, grade);
+                courseCount++;
+            } else {
+                System.out.println("Cannot add more courses for " + getName());
+            }
         }
-    }
 
         
   
@@ -47,7 +35,7 @@ public class SaudiEStudent extends Person {
         else
         {
          for (int i = 0; i < courseCount; i++) {
-                CourseWithGrade courseWithGrade = courses[i];
+                CourseEnrollment courseWithGrade = courses[i];
                 System.out.println("----------------");
 
                 System.out.println("  Course: " + courseWithGrade.course.getCourseName());
