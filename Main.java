@@ -9,7 +9,7 @@ public class Main {
         SaudiEStudent naif = new SaudiEStudent("Naif", 102);
         SaudiEStudent unknown = new SaudiEStudent("Unknown", 103);
 
-        // add course to student object 
+        // add course with grade to student object 
         riyan.addCourse(objectedOrientedProgramming, 100);
         riyan.addCourse(digitalLogicDesign, 100);
 
