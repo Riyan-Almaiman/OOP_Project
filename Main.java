@@ -19,6 +19,8 @@ public class Main {
         unknown.addCourse(objectedOrientedProgramming, 100);
         unknown.addCourse(digitalLogicDesign, 100);
 
+        
+        // create an array of students
         SaudiEStudent[] students = { riyan, naif, unknown };
 
         for (int i = 0; i < students.length; i++) {
