@@ -9,7 +9,7 @@ public class Main {
         SaudiEStudent naif = new SaudiEStudent("Naif", 102);
         SaudiEStudent unknown = new SaudiEStudent("Unknown", 103);
 
-        // add course with grade to student object 
+        // add course with grade to student objects
         riyan.addCourse(objectedOrientedProgramming, 100);
         riyan.addCourse(digitalLogicDesign, 100);
 
@@ -19,11 +19,11 @@ public class Main {
         unknown.addCourse(objectedOrientedProgramming, 100);
         unknown.addCourse(digitalLogicDesign, 100);
 
-        // display all student info
-        riyan.displayDetails();
-        System.out.println("--------------------------------------------------");
-        naif.displayDetails();
-        System.out.println("--------------------------------------------------");   
-        unknown.displayDetails();
+        SaudiEStudent[] students = { riyan, naif, unknown };
+
+        for (int i = 0; i < students.length; i++) {
+            students[i].displayDetails();
+            System.out.println("--------------------------------------------------");
+        }
     }
 }
