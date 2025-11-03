@@ -99,8 +99,9 @@ public class Main {
         while (true) {
             try {
                 studentId = scanner.nextInt();
-                break;
+                break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter an integer." + RESET);
                 scanner.nextLine();
             }
@@ -130,11 +131,12 @@ public class Main {
                 studentIndex = scanner.nextInt() - 1;
                 //check if input is in range of the list (must be greater than or equal to 0 and less than size)
                 if (studentIndex >= 0 && studentIndex < students.size()) {
-                    break;
+                    break; // valid input so break the loop
                 } else {
                     System.out.println(RED + "Please select a valid student number." + RESET);
                 }
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter an integer." + RESET);
                 scanner.nextLine();
             }
@@ -155,11 +157,12 @@ public class Main {
                 courseIndex = scanner.nextInt() - 1;
                 //check if input is in range of the list (must be greater than or equal to 0 and less than size)
                 if (courseIndex >= 0 && courseIndex < courses.size()) {
-                    break;
+                    break; // valid input so break the loop
                 } else {
                     System.out.println(RED + "Please select a valid course number." + RESET);
                 }
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter an integer." + RESET);
                 scanner.nextLine();
             }
@@ -174,8 +177,9 @@ public class Main {
         while (true) {
             try {
                 grade = scanner.nextDouble();
-                break;
+                break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter a valid number for grade." + RESET);
                 scanner.nextLine();
             }
@@ -194,8 +198,9 @@ public class Main {
         while (true) {
             try {
                 employeeId = scanner.nextInt();
-                break;
+                break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter an integer." + RESET);
                 scanner.nextLine();
             }
@@ -207,8 +212,9 @@ public class Main {
             try {
                 System.out.println("Enter Monthly Salary:");
                 monthlySalary = scanner.nextDouble();
-                break;
+                break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter a valid number for salary." + RESET);
                 scanner.nextLine();
             }
@@ -227,8 +233,9 @@ public class Main {
         while (true) {
             try {
                 employeeId = scanner.nextInt();
-                break;
+                break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter an integer." + RESET);
                 scanner.nextLine();
             }
@@ -240,8 +247,9 @@ public class Main {
             try {
                 System.out.println("Enter Hourly Rate:");
                 hourlyRate = scanner.nextDouble();
-                break;
+                break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter a valid number for hourly rate." + RESET);
                 scanner.nextLine();
             }
@@ -253,8 +261,9 @@ public class Main {
             try {
                 System.out.println("Enter Hours Worked:");
                 hoursWorked = scanner.nextInt();
-                break;
+                break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
+                //not valid try again
                 System.out.println(RED + "Please enter a valid integer for hours worked." + RESET);
                 scanner.nextLine();
             }
