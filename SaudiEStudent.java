@@ -35,14 +35,15 @@ public class SaudiEStudent extends Person {
         else
         {
          for (int i = 0; i < courseCount; i++) {
-                CourseEnrollment courseWithGrade = courses[i];
+
+                
                 System.out.println("----------------");
 
-                System.out.println("  Course: " + courseWithGrade.course.getCourseName());
-                System.out.println("  Code: " + courseWithGrade.course.getCourseCode());
-                System.out.println("  Professor: " + courseWithGrade.course.getProfessorName());
-                System.out.println("  Grade: " + courseWithGrade.grade);
-                System.out.println("  Pass or Fail: " + (courseWithGrade.isPass() ? "Pass" : "Fail"));
+                System.out.println("  Course: " + courses[i].course.getCourseName());
+                System.out.println("  Code: " + courses[i].course.getCourseCode());
+                System.out.println("  Professor: " + courses[i].course.getProfessorName());
+                System.out.println("  Grade: " + courses[i].grade);
+                System.out.println("  Pass or Fail: " + (courses[i].isPass() ? "Pass" : "Fail"));
                 System.out.println("----------------");
             }
         }
