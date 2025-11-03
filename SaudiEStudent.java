@@ -13,6 +13,11 @@ public class SaudiEStudent extends Person {
             this.course = course;
             this.grade = grade;
         }
+
+        public boolean isPass() {
+        return grade >= 60;
+         }
+
     }
     public SaudiEStudent(String name, int id) {
         super(name, id);
@@ -30,10 +35,7 @@ public class SaudiEStudent extends Person {
     }
 
         
-    public boolean isPass(double grade) {
-        return grade >= 60;
-    }
-
+  
     public void displayDetails() {
         System.out.println("Student Name: " + getName());
         System.out.println("Student ID: " + getId());
@@ -52,7 +54,7 @@ public class SaudiEStudent extends Person {
                 System.out.println("  Code: " + courseWithGrade.course.getCourseCode());
                 System.out.println("  Professor: " + courseWithGrade.course.getProfessorName());
                 System.out.println("  Grade: " + courseWithGrade.grade);
-                System.out.println("  Pass or Fail: " + (isPass(courseWithGrade.grade) ? "Pass" : "Fail"));
+                System.out.println("  Pass or Fail: " + (courseWithGrade.isPass() ? "Pass" : "Fail"));
                 System.out.println("----------------");
             }
         }

@@ -10,7 +10,7 @@ public class Main {
         SaudiEStudent unknown = new SaudiEStudent("Unknown", 103);
 
         // add course with grade to student objects
-        riyan.addCourse(objectedOrientedProgramming, 100);
+        riyan.addCourse(objectedOrientedProgramming, 50);
         riyan.addCourse(digitalLogicDesign, 100);
 
         naif.addCourse(objectedOrientedProgramming, 100);
@@ -19,7 +19,7 @@ public class Main {
         unknown.addCourse(objectedOrientedProgramming, 100);
         unknown.addCourse(digitalLogicDesign, 100);
 
-        
+
         // create an array of students
         SaudiEStudent[] students = { riyan, naif, unknown };
 
