@@ -7,6 +7,7 @@ public class Main {
     static String GREEN = "\u001B[32m";
     static String RESET = "\u001B[0m";
     static String RED = "\u001B[31m";
+    static String YELLOW = "\u001B[33m";
 
     public static void main(String[] args) {
 
@@ -77,6 +78,7 @@ public class Main {
 
                 case "5":
                     isMenuOpen = false;
+                    System.out.println(YELLOW + "Thank you for using the system. Goodbye!" + RESET);
                     break;
 
                 default:
