@@ -23,14 +23,14 @@ public class Main {
         persons.add(new SaudiEStudent("Naif Hani", 2, "CS230", 42));
 
         //sample student 3 (fail)
-         persons.add(new SaudiEStudent("Riyan Almaiman", 2, "CS230", 49));
+         persons.add(new SaudiEStudent("Riyan Almaiman", 3, "CS230", 49));
 
         
         // Sample Full-Time Employee
         persons.add(new FullTimeEmployee("Dr. Omar Alaqeeli", 101, 35000));
         
         // Sample Part-Time Employee
-        persons.add(new PartTimeEmployee("Dr. Mohammad", 202, 120, 15));
+        persons.add(new PartTimeEmployee("Dr. Mohammad", 202, 120, 38));
 
         // End of sample data
 
