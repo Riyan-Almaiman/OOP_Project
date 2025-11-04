@@ -24,7 +24,7 @@ public class Main {
         persons.add(new SaudiEStudent("Naif Hani", 2, "CS230", 42));
 
         // Sample Student 3 (Fail)
-         persons.add(new SaudiEStudent("Riyan Almaiman", 3, "CS230", 49));
+        persons.add(new SaudiEStudent("Riyan Almaiman", 3, "CS230", 49));
 
         
         // Sample Full-Time Employee
