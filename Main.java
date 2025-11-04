@@ -27,10 +27,10 @@ public class Main {
 
         
         // Sample Full-Time Employee
-        persons.add(new FullTimeEmployee("Dr. Abdullah", 101, 15000));
+        persons.add(new FullTimeEmployee("Dr. Omar Alaqeeli", 101, 35000));
         
         // Sample Part-Time Employee
-        persons.add(new PartTimeEmployee("Dr. Mohammad", 202, 120.0, 15));
+        persons.add(new PartTimeEmployee("Dr. Mohammad", 202, 120, 15));
 
         // End of sample data
 
