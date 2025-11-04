@@ -22,7 +22,7 @@ public class Main {
         // Sample Student 2 (Fail)
         persons.add(new SaudiEStudent("Naif Hani", 2, "CS230", 42));
 
-        //sample student 3 (fail)
+        // Sample Student 3 (Fail)
          persons.add(new SaudiEStudent("Riyan Almaiman", 3, "CS230", 49));
 
         
