@@ -14,6 +14,22 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean isMenuOpen = true;
 
+        // Sample Data
+        
+        // Sample Student 1 (Pass)
+        persons.add(new SaudiEStudent("Radwan Alghawi", 1, "CS230", 98.5));
+        
+        // Sample Student 2 (Fail)
+        persons.add(new SaudiEStudent("Naif Hani", 2, "CS230", 42));
+        
+        // Sample Full-Time Employee
+        persons.add(new FullTimeEmployee("Dr. Riyan", 101, 15000));
+        
+        // Sample Part-Time Employee
+        persons.add(new PartTimeEmployee("Dr. Abdullah", 202, 120.0, 15));
+
+        // End of sample data
+
         while (isMenuOpen) {
             System.out.println("Menu:");
             System.out.println("1. Add Student");
@@ -109,6 +125,12 @@ public class Main {
             try {
                 grade = scanner.nextDouble();
                 scanner.nextLine();
+
+                // grade validation 0-100
+                if (grade < 0 || grade > 100) {
+                    System.out.println(RED + "Grade must be from 0 to 100." + RESET);
+                    continue; // go back to loop
+                }
                 break;
             } catch (Exception e) {
                 System.out.println(RED + "Please enter a valid number for grade." + RESET);
@@ -155,6 +177,12 @@ public class Main {
                 System.out.println("Enter Monthly Salary:");
                 monthlySalary = scanner.nextDouble();
                 scanner.nextLine();
+
+                // salary validation
+                if (monthlySalary < 0) {
+                    System.out.println(RED + "Enter a valid monthly salary." + RESET);
+                    continue; // go back to loop
+                }
 
                 break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
@@ -204,6 +232,12 @@ public class Main {
                 hourlyRate = scanner.nextDouble();
                 scanner.nextLine();
 
+                // hourly rate validation
+                if (hourlyRate < 0) {
+                    System.out.println(RED + "Enter a valid hourly rate." + RESET);
+                    continue; // go back to loop
+                }
+
                 break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
                 // not valid try again
@@ -218,6 +252,12 @@ public class Main {
                 System.out.println("Enter Hours Worked:");
                 hoursWorked = scanner.nextInt();
                 scanner.nextLine();
+
+                // hours worked validation
+                if (hoursWorked < 0) {
+                    System.out.println(RED + "Enter a valid number of hours worked." + RESET);
+                    continue; // go back to loop
+                }
 
                 break; // when it reaches here that means number is valid so we break
             } catch (Exception e) {
