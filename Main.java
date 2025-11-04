@@ -18,15 +18,19 @@ public class Main {
         
         // Sample Student 1 (Pass)
         persons.add(new SaudiEStudent("Radwan Alghawi", 1, "CS230", 98.5));
-        
+
         // Sample Student 2 (Fail)
         persons.add(new SaudiEStudent("Naif Hani", 2, "CS230", 42));
+
+        //sample student 3 (fail)
+         persons.add(new SaudiEStudent("Riyan Almaiman", 2, "CS230", 49));
+
         
         // Sample Full-Time Employee
-        persons.add(new FullTimeEmployee("Dr. Riyan", 101, 15000));
+        persons.add(new FullTimeEmployee("Dr. Abdullah", 101, 15000));
         
         // Sample Part-Time Employee
-        persons.add(new PartTimeEmployee("Dr. Abdullah", 202, 120.0, 15));
+        persons.add(new PartTimeEmployee("Dr. Mohammad", 202, 120.0, 15));
 
         // End of sample data
 
