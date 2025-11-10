@@ -96,8 +96,15 @@ public class Main {
         double grade;
 
         // get name input
-        System.out.println("Enter Name:");
-        studentName = scanner.nextLine();
+        while (true) {
+            System.out.println("Enter Name:");
+            studentName = scanner.nextLine();
+            if (studentName.matches("\\d+")) {
+                System.out.println(RED + "Name cannot be a number. Please enter a valid name." + RESET);
+             continue;
+            }
+            break;
+        }
 
         // get id by looping until valid input (incase user enters string)
         while (true) {
@@ -154,8 +161,16 @@ public class Main {
         String fullTimeEmployeeName;
         double monthlySalary;
 
-        System.out.println("Enter Name:");
-        fullTimeEmployeeName = scanner.nextLine();
+        // get name input
+          while (true) {
+            System.out.println("Enter Name:");
+            fullTimeEmployeeName = scanner.nextLine();
+            if (fullTimeEmployeeName.matches("\\d+")) {
+                System.out.println(RED + "Name cannot be a number. Please enter a valid name." + RESET);
+             continue;
+            }
+            break;
+        }
 
         // loop until valid input (incase user enters string)
         while (true) {
@@ -208,8 +223,19 @@ public class Main {
         String partTimeEmployeeName;
         int employeeId;
         int hoursWorked;
-        System.out.println("Enter Name:");
-        partTimeEmployeeName = scanner.nextLine();
+
+        // get name input
+         while (true) {
+            System.out.println("Enter Name:");
+            partTimeEmployeeName = scanner.nextLine();
+            if (partTimeEmployeeName.matches("\\d+")) {
+                System.out.println(RED + "Name cannot be a number. Please enter a valid name." + RESET);
+             continue;
+            }
+            break;
+        }
+
+
         // loop until valid input (incase user enters string)
         while (true) {
             System.out.println("Enter ID:");
