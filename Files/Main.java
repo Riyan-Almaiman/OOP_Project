@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    // console colors
+    // console colors 
     static String GREEN = "\u001B[32m";
     static String RESET = "\u001B[0m";
     static String RED = "\u001B[31m";
